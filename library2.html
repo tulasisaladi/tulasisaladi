@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+ </head>
+<style>
+table, th, td {
+  border: 3px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  text-align:center;    
+}
+
+
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 20px;
+   
+}
+.row {
+  float: right;
+  width: 40%;
+  
+   
+}
+</style>    
+</head>
+<body>
+        
+        <div class="column" ;>
+            <table id="myTable" >
+                <thead>
+                    <tr>
+                        <th>Book name</th>
+                        <th>Author</th>
+                        <th>image</th>
+                        <th>add_item</th>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LAND TREES</td>
+                        <td>DEREK SMITH </td>
+                        <td><img src="yellow winter.jpg" width="40" height="40"> </td>
+                       <td><button class="copy">add_item</button></td>
+                    </tr>
+                     <tr>
+                        <td>ELITE SERIES</td>
+                        <td>CAROLENE KEENE </td>
+                        <td><img src="staircase.jpg" width="40" height="40" ></td>
+                       <td><button class="copy">add_item</button></td>
+                    </tr>
+                    <tr>
+            <td>BOND</td>
+            <td>J.F.GRATTO</td>
+            <td><img src="Dark world.jpg" width="40" height="40"> </td>
+            <td><button class="copy">add_item</button></td>
+                    </tr>
+                    <tr>
+            <td>CAROLENE</td>
+            <td>CAROLENE KEENE </td>
+            <td><img src="secret of old clock.jpg"  width="40" height="40"   ></td>
+                      <td><button class="copy">add_item</button></td> 
+                    </tr>
+                </tbody>
+    </table>
+</div>
+    <div class="row" ;>
+      <table id="displaytable">
+                <thead>
+                    <tr><td>Book name</td>
+                    <td>Author</td>
+                     <td>image</td>
+                      <td>selected</td>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+<script type="text/javascript">
+$(function() {
+    $(document).on('click', 'button.copy', function(){
+        var $b = $(this).parents('tr').clone()
+        var $hide =$(this).parents('tr').hide();
+        $b.appendTo($('#displaytable'));
+    });
+});
+
+
+</script>
+</body>
+</html>
+    
+
+
