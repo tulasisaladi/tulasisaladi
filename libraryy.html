@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+ </head>
+<style>
+table, th, td {
+  border: 3px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  text-align:center;    
+}
+
+
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 20px;
+   
+}
+.row {
+  float: right;
+  width: 40%;
+  padding: 20px;
+   
+   
+}
+</style>    
+</head>
+<body>
+        
+        <div class="column" ;>
+            <table id="myTable" >
+                <thead>
+                    <tr>
+                        <th>Book name</th>
+                        <th>Author</th>
+                        <th>image</th>
+                        <th>add_item</th>
+                     
+                    </tr>
+                </thead>
+                  <tbody id="myTable">
+                </tbody>
+                    </table>
+                </div>
+        <div class="row" ;>
+            <table id="displaytable">
+            <thead>
+                    <tr>
+                        <td>Book name</td>
+                    <td>Author</td>
+                     <td>image</td>
+                      <td>selected</td>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+<script>
+    var myArray = [
+        {'Bookname':'LAND TREES', 'Author':'DEREK SMITH', 'image':"yellow_winter.jpg"},
+        {'Bookname':'ELITE SERIES', 'Author':'CAROLENE KEENE', 'image':"Dark world.jpg"},
+         {'Bookname':'BOND', 'Author':'J.F.GRATTO', 'image':"staircase.jpg"},
+          {'Bookname':'CAROLENE', 'Author':'CAROLENE', 'image':"secret of old clock.jpg"},
+
+    ]
+    
+    getTable(myArray)
+
+    function getTable(data){
+        var table = document.getElementById('myTable')
+
+        for (var i = 0; i < data.length; i++){
+            var rows= `<tr>
+                            <td>${data[i].Bookname}</td>
+                            <td>${data[i].Author}</td>
+                            <td> <img src='${data[i].image}',width="50" height="60"  ></td>
+                      </tr>`
+            table.innerHTML = table.innerHTML+ rows
+
+
+        }
+    }
+$(function() {
+    $('#myTable tbody tr').each(function(){
+        $(this).append('<td><button class="copy">add_item</button></td>');
+    });
+    
+    $(document).on('click', 'button.copy', function(){
+        var $b = $(this).parents('tr').clone();
+        var $td =$(this).parents('tr').hide();
+        $b.appendTo($('#displaytable'));
+    });
+});
+
+
+</script>
+</body>
+</html>
